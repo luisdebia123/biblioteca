@@ -1,0 +1,21 @@
+
+
+
+{%  extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo%}Confirmación de eliminación {% endblock %}
+
+{% block contenidos %}
+
+<div class ="container text-center">
+    <form method="POST" action="">
+            {% csrf_token %}
+            Está seguro de eliminar autor  = {{ object }}?
+
+        <button type="submit" class="btn btn-danger" >Eliminar</button>
+    
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% block titulo%} Crear Autor{% endblock %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block contenidos %}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-8">
+                <strong>Cración de Autores</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.management_form }}
+        {% for fo in form %}
+            <div class="card" style="padding: 5px;">
+                {{ fo }}
+            </div>
+            <br>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+    <button type = 'button' class="btn btn-success" onclick="agregar_inputs();">Guardar</button>
+</div>
+{% endblock %}

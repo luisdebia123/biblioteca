@@ -1,0 +1,74 @@
+* {
+    margin : 0;
+    padding :0;
+    box-sizing: border-box;
+}
+/* Crea el recuadro del registro*/
+.form-register{
+    width: 250px;
+    background :#261109;
+    padding: 30px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    border: radius 4px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    box-shadow: 7px 13px 57px #000;
+}
+
+/* Da estilos al titulo del registro*/
+.form-register h4{
+    font: size 22px;
+    margin-bottom: 20px;
+}
+
+/* Da estilos a todos los inputs*/
+.controls{
+    width: 100%;
+    background: #1C0F07;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border : 1px solid #200F07;
+    font-size: 18px ;
+    color: #6E4E34;
+}
+
+
+.form-register p{
+    height: 40px;
+    text-align: center;
+    font: size 18px;
+}
+
+/* da color blanco a la fraze ¿tengo una cuenta?*/
+.form-register a{
+    color:white;
+    text-decoration: none;
+}
+
+/* pone una línea a pasor por ¿Ya tengo una cuenta ?*/
+.form-register a:hover{
+    color:white;
+    text-decoration: underline;
+}
+
+/* Da formato al boton Guardar*/
+.form-register .bottom{
+    width: 100%;
+    background: #200F01;
+    border: none ;
+    padding : 10px;
+    color:white;
+    margin: 16px;
+
+}
+/* Da estilos a la imagen de fondo*/
+#bg{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position:top;
+    background-attachment: fixed;
+}

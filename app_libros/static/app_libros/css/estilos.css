@@ -1,0 +1,243 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /*background-image: url(imagen2.jpg); */
+
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* color, alinación y alto de barra de navegación */
+.menu{
+    background: gray;
+    text-align: left;
+    height: 75px;
+
+}
+
+.menu ul{
+    display: inline-flex;
+    list-style: none;
+    color: cornsilk;
+    
+}
+
+.menu ul li{/* Separación de t´tulos de la barra de navegación*/
+    width: 80px;
+    height: 60px;
+    margin: 5px;
+    padding: 4px;
+
+}
+
+.menu ul li a{/* color de la letra de barra de navegación*/
+    text-decoration: none;
+    color:white;
+}
+
+
+
+.barra, .menu ul li:hover{
+    background:lightgrey;
+    border-radius: 3px; /* forma borde de inicio*/
+}
+
+
+.submenu{
+    display: none; /* oculta submenu*/
+}
+
+
+.menu ul li:hover .submenu{/* muestra submenu vertil*/
+    display: block;
+    position: absolute;
+    background: gray;
+    margin-top: 15px;
+    margin-left: -15px;
+}
+
+.menu ul li:hover .submenu ul{
+    display: block;
+    margin: 1px;
+}
+
+.menu ul li:hover .submenu ul li{ /* subrayado de subtiyulos*/
+    width: 150px;
+    padding: auto;
+    border-bottom: 1px dotted #fff;
+    border-radius: 5;
+    text-align: left;
+}
+
+.menu ul li:hover .submenu ul li:last-child{
+    border-bottom: none;
+}    
+
+.menu ul li:hover .submenu ul li a:hover{
+    color: white;
+}    
+
+
+
+/*Titulo*/
+.titulo {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-size: 15px;
+    padding: 10px 5px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+}
+
+
+.titulo {
+    color:white;
+    background: gray;
+
+
+}
+
+    
+    .header {
+        color: #36A0FF;
+        font-size: 27px;
+        padding: 10px;
+    }
+    
+    .bigicon {
+        font-size: 35px;
+        color: #36A0FF;
+    }
+
+
+    #bg{
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position:top;
+        background-attachment: fixed;
+        width: 50;
+    }
+
+.user{/* color de la letra de registro, login*/
+    text-decoration: none;
+    color:white;
+
+}
+
+.user{/* Separación de registro login*/
+    width: 80px;
+    height: 60px;
+    margin: 5px;
+    padding: 4px;
+    
+}
+/*estilos para libros disponibles*/
+
+    /*estilo tamaño de las targetas */
+
+#contenedor{
+    background-color: blue;
+    width: 850px;
+    height: 850px;
+    margin: 40px;
+    padding: 2rem;
+    
+
+}
+#row{
+    background-color:brown;
+    width: 780px;
+    height: 800px;
+    margin: 5px;
+    padding: 4rem;
+    
+}
+
+
+#card{
+    background-color:gray;
+    width: 250px;
+    height: 250px;
+    margin: 1px;
+    padding: 1rem;
+    
+
+}
+
+.tamaño{
+    width: 150px;
+    height: 150px;
+    background-color: aqua;
+    margin: 25px;
+    padding: 1rem;
+    object-fit: cover;
+    
+        
+}
+
+/*estilos para Detalle libros disponibles*/
+
+#titulo-detalle-card{
+    width: 1 rem;
+    height: 3rem;
+    background-color:gray;
+
+}
+
+#titulo-detalle-card-header{
+    width: 75rem;
+    height: 3rem;
+    background-color:lightgray;
+    border: 0.3rem black solid;
+    padding: 0.5rem;
+}
+
+
+/*---------------------------------*/
+
+#detalle-card{
+    background-color: lightblue;
+    width: 25em;
+    height: 30em;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    margin-top: 3em;
+    margin-left: 20em;
+    margin-right: 5em;
+}
+
+#detalle-img{
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+}
+
+
+
+
+
+#detalle-card-body{
+    background-color: blue;
+    width: 10em;
+    height: 6em;
+}
+
+#detalle-row{
+    background-color: yellow;
+    width: 31em;
+    height: 5em;
+
+}
+
+#detalle-publicacion{
+    background-color: grey;
+    width: 200em;
+    height: 2em;
+}

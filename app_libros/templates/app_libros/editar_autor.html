@@ -1,0 +1,24 @@
+<!--http://127.0.0.1:8000/editar_autor/-->
+{%  extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block titulo%} Editar/Modificar Autor{% endblock %}
+
+{% block contenidos %}
+
+<div class ="container text-center">
+    <form method="post" action="">
+            {% csrf_token %}
+        <div class="form-group">
+            <!--{{autor_form | crispy}} Lo renderiza de forma global con form para las clases-->
+            {{form | crispy}}  
+        </div>
+        <button type="submit" class="btn btn-primary">Modificar</button>
+    </form>
+</div>
+
+
+
+
+{% endblock %}  

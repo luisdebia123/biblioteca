@@ -1,0 +1,31 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'app_libros/css/registro.css' %}"  type="text/css">
+    <title>Formulario Registro</title>
+</head>
+
+<body id="bg" style="background-image: url('{% static 'app_libros/img/libro.jpg'%}');">
+    <form class="" method="POST">
+        {% csrf_token %}
+        <section class="form-register">
+            <h4>Formulario de registro</h4>
+            <input class = "controls" type="text" name="username" id="nombres" placeholder="username">
+            <input class = "controls" type="text" name="first_name" id="nombres" placeholder="Ingrese su Nombre">
+            <input class = "controls" type="text" name="last_name" id="apellidos" placeholder="Ingrese su Apellido">
+            <input class = "controls" type="text" name="email" id="email" placeholder="Ingrese su Email">
+            <input class = "controls" type="password" name="password1" id="password1" placeholder="password1">
+            <input class = "controls" type="password" name="password2" id="password2" placeholder="password2">
+            <input class = "bottom" type="submit" value="Guardar">
+            <p><a href="{% url 'login'  %}">¿Ya tengo una cuenta?</a></p>
+        </section>
+    </form>
+
+</body>
+</html>

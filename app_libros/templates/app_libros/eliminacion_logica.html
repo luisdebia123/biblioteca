@@ -1,0 +1,21 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo%} Eliminar Logica {% endblock %}
+
+{% block contenidos %}
+
+<div class ="container text-center">
+    <form method="POST" action="">
+            {% csrf_token %}
+            Está seguro de eliminar autor con Id = {{id}}?
+        <div class="form-group">
+            {{autor | crispy}}    
+        </div>
+        <button id="submit" name="submit" class="btn btn-danger" value="1">Eliminar</button>
+        <a href="{% url 'app_libros:leer_autores' %}" id="cancel" name="cancel" class="btn btn-primary">Cancel</a>
+
+    </form>
+</div>
+{% endblock %}

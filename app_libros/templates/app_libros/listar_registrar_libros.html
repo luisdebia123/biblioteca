@@ -1,0 +1,88 @@
+<!--http://127.0.0.1:8000/leer_autores/-->
+
+{%  extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo%} Listar Registrar Libros {% endblock titulo %}
+
+{% block js %}
+    <script >
+        function eliminarProducto(id) {
+            Swal.fire({
+                'title' : '¿ Estas Seguro ?',
+                'text' : 'Esta acción no se puede revertir',
+                'icon' : 'question',
+                'showCancelButton' : true,
+                'cancelButtonText' : 'No, Cancelar',
+                'confirmButtonText' : 'Si, Eliminar',
+
+            })
+            .then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = '/eliminar_SweetAlert/'+id+'/'
+                }
+            })
+        }
+    </script>
+
+
+{% endblock js %}
+
+{% block contenidos %}
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">N°</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Fecha Publicación</th>
+                <th scope="col">Acción</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+            {% for libro in libros %} 
+                <tr>
+                    <td>{{libro.id}}</td>
+                    <td>{{libro.titulo}}</td>
+
+                    <td>
+                        {% for autor in libro.autor_id.all %}
+                            <li>{{ autor.nombre }}</li>
+                        {% endfor %}
+                    </td>
+
+                    <td>{{libro.fecha_publicacion}}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="{% url 'app_libros:editar_libro' libro.id %}" >Editar</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger btn-sm" href="{% url 'app_libros:eliminar_libros' libro.id %}">Eliminación</a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-header">
+                <strong>Formulario</strong>
+            </div>
+            <div class="card-body card-block">
+                    {{form | crispy}}
+            </div>
+        </div>
+        <button type="submit" class='btn btn-success'>Registrar</button>
+    </form>
+    
+
+    
+
+{% endblock contenidos %}

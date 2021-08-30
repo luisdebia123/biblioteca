@@ -1,0 +1,19 @@
+<!--http://127.0.0.1:8000/crear_libros/-->
+
+{%  extends 'base.html' %}
+{% load static %}
+{% block titulo%} Crear Libro {% endblock %}
+{% load crispy_forms_tags %}
+
+
+{% block contenidos %}
+<form method="post" action="">
+    {% csrf_token %}
+        <div class="card-body card-block">
+                {{form | crispy}}
+        </div>
+    </div>
+    <button type="submit" class='btn btn-success'>Registrar</button>
+</form>
+
+{% endblock %}

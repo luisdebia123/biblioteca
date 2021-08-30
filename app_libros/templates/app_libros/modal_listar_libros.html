@@ -1,0 +1,102 @@
+<!--http://127.0.0.1:8000/leer_autores/-->
+
+{%  extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo %} Listar Registrar Libros (Modal) {% endblock titulo %}
+
+{% block js %}
+    <script >
+        function eliminarProducto(id) {
+            Swal.fire({
+                'title' : '¿ Estas Seguro ?',
+                'text' : 'Esta acción no se puede revertir',
+                'icon' : 'question',
+                'showCancelButton' : true,
+                'cancelButtonText' : 'No, Cancelar',
+                'confirmButtonText' : 'Si, Eliminar',
+
+            })
+            .then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = '/eliminar_SweetAlert/'+id+'/'
+                }
+            })
+        }
+    </script>
+
+
+{% endblock js %}
+
+{% block contenidos %}
+
+<div>
+    <button class="btn btn-primary" type="button"
+        onclick="abrir_modal_creacion('{ url 'app_libros:modal_crear_libros' }')">Crear Libro
+    </button>
+</div>
+
+
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">N°</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Fecha Publicación</th>
+                <th scope="col">Acción</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+            {% for libro in libros %} 
+                <tr>
+                    <td>{{libro.id}}</td>
+                    <td>{{libro.titulo}}</td>
+
+                    <td>
+                        {% for autor in libro.autor_id.all %}
+                            <li>{{ autor.nombre }}</li>
+                        {% endfor %}
+                    </td>
+
+                    <td>{{libro.fecha_publicacion}}</td>
+                    <td>
+                        <button onclick="abrir_modal_edicion('{% url 'app_libros:modal_editar_libro' libro.id %}')" class="btn btn-primary btn-sm" >Editar</button>
+                    </td>
+                    <td>
+                        <a  href="{% url 'app_libros:eliminar_libros' libro.id %}" class="btn btn-danger btn-sm">Eliminación</a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="creacion" role="dialog"></div>
+    <div class="modal fade" id="edicion" role="dialog"></div>
+    
+
+{% endblock contenidos %}
+
+{% block modaljs %}
+
+<script type="text/javascript">
+    var $ = jQuery.noConflict();
+    function abrir_modal_edicion(url){
+        $('#edicion').load(url, function (){
+            $(this).modal('show');
+        });
+    }
+    function abrir_modal_creacion(url){
+        $('#creacion').load(url, function(){
+            $(this).modal('show');
+        });
+    }
+</script>
+
+{% endblock modaljs  %}

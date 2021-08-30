@@ -1,0 +1,20 @@
+{%  extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block titulo%} Modal Actualizar Libro {% endblock %}
+
+{% block contenidos %}
+
+<div class ="container text-center">
+    <form method="post" action="">
+            {% csrf_token %}
+        <div class="form-group">
+            {{form | crispy}}  
+        </div>
+        <button type="submit" class="btn btn-primary">Modificar</button>
+    </form>
+</div>
+
+
+
+
+{% endblock %}  

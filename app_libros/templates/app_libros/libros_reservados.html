@@ -1,0 +1,74 @@
+<!--http://127.0.0.1:8000/libros_reservados/-->
+
+{%  extends 'base.html' %}
+{% load static %}
+
+{% block titulo%} Libros Reservados {% endblock titulo %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'app_libros/css/estilos.css' %}" rel="stylesheet" type="text/css">
+
+    <title>Document</title>
+</head>
+<body>
+
+    {% block js %}
+    <script >
+        function eliminarProducto(id) {
+            Swal.fire({
+                'title' : '¿ Estas Seguro ?',
+                'text' : 'Esta acción no se puede revertir',
+                'icon' : 'question',
+                'showCancelButton' : true,
+                'cancelButtonText' : 'No, Cancelar',
+                'confirmButtonText' : 'Si, Eliminar',
+
+            })
+            .then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = '/eliminar_SweetAlert/'+id+'/'
+                }
+            })
+        }
+    </script>
+{% endblock js %}
+
+
+
+{% block contenidos %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">N°</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Fecha de Reserva</th>
+                <th scope="col">Fecha de Vencimiento</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for reserva in object_list %} 
+                <tr>
+                    <td>{{reserva.id}}</td>
+                    <td>{{reserva.libro}}</td>
+                    <td>{{reserva.fecha_creacion}}</td>
+                    <td>{{reserva.fecha_vencimiento}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock contenidos %}
+
+
+</body>
+</html>
